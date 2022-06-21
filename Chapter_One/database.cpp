@@ -1,5 +1,7 @@
 module database;
 import <stdexcept>;
+import <iostream>;
+import <format>;
 import employee;
 
 namespace Records
@@ -10,6 +12,12 @@ namespace Records
 		theEmployee.setEmployeeNumber(m_nextEmployeeNumber++);
 		theEmployee.hire();
 		m_employees.push_back(theEmployee);
+		return m_employees.back();
+	}
+
+	Employee& Database::addEmployee(const Employee& employee)
+	{
+		m_employees.push_back(employee);
 		return m_employees.back();
 	}
 
@@ -35,6 +43,7 @@ namespace Records
 
 	void Database::displayAll()
 	{
+		std::cout << std::format("Number of employees: {}\n\n", m_employees.size());
 		for (auto& employee : m_employees) { employee.display(); }
 	}
 
