@@ -48,6 +48,7 @@ int main()
 			case 6:
 				employeeDB.displayFormer();
 				break;
+				
 			[[unlikely]] default:
 				std::cerr << "Unknown Command\n";
 				break;
