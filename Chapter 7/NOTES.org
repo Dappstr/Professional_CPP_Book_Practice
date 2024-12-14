@@ -1,0 +1,11 @@
+* Pointers and arrays
+
+Not all pointers are arrays. A pointer by its-self is meaningless. It may point to random memory, a single object, or an array.
+
+weak_ptr is like shared_ptr but it does not share ownership.
+
+A function accepting a pointer as one of its parameters should accept a smart pointer only if there is ownership transfer or ownership sharing.
+To share ownership of a `shared_ptr`, we should pass by value.
+If neither ownership transfer nor ownership sharing is desired, then pass a non-const reference.
+
+

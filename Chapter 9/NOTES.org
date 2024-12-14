@@ -1,0 +1,9 @@
+When returning a parameter/argument, or a temporary value, RVO is used.
+If returning a local variable, NRVO is used.
+When returning a local variable or parameter from a function, simply write return object; and do not use std::move()
+Ternary return statements do not enable (N)RVO and will instead use a copy constructor.
+"mutable" tells the compiler that const methods can modify the member
+
+Advanced C++ compilers do not require you to put definitions of inline methods in the same file as the class definition. For example,
+Microsoft Visual C++ supports Link-Time Code Generation (LTCG), which automatically inlines small function bodies, even if they are not declared as inline and even if they are not defined in the same file as the class definition.
+GCC and Clang have similar features.
