@@ -1,0 +1,14 @@
+#+TITLE: Inheritance Techniques
+
+
+| Access specifier | Meaning                                                                      | When to use                                     |
+|------------------+------------------------------------------------------------------------------+-------------------------------------------------|
+| public           | Any code can call a public member or method                                  | Behavior that you want clients to use           |
+| protected        | Methods of the class can call protected members.                             | "Helper" methods you do not want clients to use |
+| private          | Only methods of the class can call private member functions and data members | All data members should be private              |
+
+A call to a virtual method contains some overhead, since the program needs to dereference the pointer to the appropriate code to execute.
+
+When upcasting use a pointer or reference to avoid slicing
+
+Use downcasting only when really necessary, and be sure to use dynamic_cast()
