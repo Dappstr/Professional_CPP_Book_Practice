@@ -9,6 +9,14 @@
 
 A call to a virtual method contains some overhead, since the program needs to dereference the pointer to the appropriate code to execute.
 
-When upcasting use a pointer or reference to avoid slicing
+When upcasting use a pointer or reference to avoid slicing.
 
 Use downcasting only when really necessary, and be sure to use dynamic_cast()
+
+External linkage = variable/function is available in multiple translation units.
+
+Internal linkage/static linkage = variable/function is not available in multiple translation units.
+
+It is recommended to use anonymous namespaces instead of declaring functions as static.
+
+
