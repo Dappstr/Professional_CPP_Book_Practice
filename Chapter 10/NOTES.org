@@ -19,4 +19,4 @@ Internal linkage/static linkage = variable/function is not available in multiple
 
 It is recommended to use anonymous namespaces instead of declaring functions as static.
 
-
+'extern' is used to give a variable external linkage
