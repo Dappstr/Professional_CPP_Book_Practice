@@ -9,7 +9,7 @@
 
 int main() {
     int sum {};
-    std::cout << "Enter a number on separate lines:\n";
+    std::cout << "Enter numbers:\n";
     while (!std::cin.bad()) {
         int number {};
         std::cin >> number;
