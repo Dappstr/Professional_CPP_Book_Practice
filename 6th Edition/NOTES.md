@@ -18,3 +18,11 @@ Functions returning a string should reutnr a const reference to a `std::string` 
 
 `std::print` and `std::println` should be favored over `std::cout` especially for printing UTF-8 strings.
 
+## Chapter 3
+
+Doxygen is a tool that can parse and understand comments in C++ code and build documentation from them.
+
+Decomposition is the technique of breaking down a problem into smaller subproblems. Functions for example, should not be 300 lines long.
+
+Do not name variables or functions with a leading double underscore. This is reserved for the compiler.
+
