@@ -26,3 +26,15 @@ Decomposition is the technique of breaking down a problem into smaller subproble
 
 Do not name variables or functions with a leading double underscore. This is reserved for the compiler.
 
+## Chapter 4
+
+`UML` (Unified Modeling Language) is a standard for modeling software systems. It is always a recommended strategy to model how your progam will look and be developed before starting development on it.
+
+ Favor abstraction when deciding how to implement a program. For example, if you implement a chess board, it would be better to implement a chess board class than simply creating an 8 x 8 array. Always favor getters and setters over direct access to the data members.
+ 
+Be skeptical when identifying performance. An O(n^2) algorithm might actually perform better than an O(log n) algorithm on small input  sizes. Consider your likely input sizes before making a decision.
+
+Before using libraries and frameworks, check to see where to submit issues and other support systems.
+
+When sitting down with a new library, try writing a quick prototype.
+
