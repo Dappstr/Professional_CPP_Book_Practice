@@ -28,7 +28,7 @@ Do not name variables or functions with a leading double underscore. This is res
 
 ## Chapter 4
 
-`UML` (Unified Modeling Language) is a standard for modeling software systems. It is always a recommended strategy to model how your progam will look and be developed before starting development on it.
+`UML` (Unified Modeling Language) is a standard for modeling software systems. It is always a recommended strategy to model how your program will look and be developed before starting development on it. UML is a powerful tool for modeling how things work (their structure, behavior, responsibilities) and what they do (their interactions, usage scenarios, lifecycle).
 
  Favor abstraction when deciding how to implement a program. For example, if you implement a chess board, it would be better to implement a chess board class than simply creating an 8 x 8 array. Always favor getters and setters over direct access to the data members.
  
@@ -37,4 +37,6 @@ Be skeptical when identifying performance. An O(n^2) algorithm might actually pe
 Before using libraries and frameworks, check to see where to submit issues and other support systems.
 
 When sitting down with a new library, try writing a quick prototype.
+
+## Chapter 5
 
