@@ -40,3 +40,19 @@ When sitting down with a new library, try writing a quick prototype.
 
 ## Chapter 5
 
+While procedural programming is an okay paradigm, not all the time programs will be a linear sequence of events, and object-orientated programming gives you the ability to model data representation more adequately.
+
+OOP is based on the notion that you should divide your program inot into tasks, but into models of physical objects.
+
+By building classes that have certain behaviors and defining how they interact, OOP offers a much richer mechanism for attaching code to the data on which it operates.
+
+Do not "over classify" your programs. If something more simple can be represented by a simpler model/type (such as a char), do not use a class to represent it. Stick to what is more simple or easier to understand.
+
+In aggregation, the aggregated objects/components can continue to live when the aggregator is destroyed. Such as in a "zoo" class, the animals can be moved to another zoo if the original one goes bankrupt.
+
+In composition, objects composed of other objects are destroyed when the containing object is destroyed. This models a "has-a" relationship.
+
+"Is-a" relationships are a good way to model inheritance.
+
+When deciding between inheritance and composition, favor composition/"has-a" relationships, as "has-a" relationships are more flexible.
+

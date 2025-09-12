@@ -1,6 +1,25 @@
 #include <iostream>
 #include <vector>
 
+// Example of polymorphism
+class Animal {
+    public:
+        virtual ~Animal() = default;
+        Animal() = default;
+
+        virtual void speak() = 0;
+};
+
+class Dog final : public Animal {
+    public:
+        void speak() override { std::cout << "Woof!\n"; }
+};
+
+class Cat final : public Animal {
+    public:
+        void speak() override { std::cout << "Meow!\n"; }
+};
+
 // Template constraint to allow only array containers which also only have arithmetic members.
 template <typename T>
 concept isValidArray = requires {
@@ -20,6 +39,11 @@ int main() {
 
     doStuffWithArray(vec);
     // doStuffWithArray(arr); ERROR due to constraints.
+
+    Animal* animal = new Dog();
+    animal->speak();
+
+    reinterpret_cast<Cat*>(animal)->speak(); // reinterpret_cast is used for changing pointer types.
 
     return 0;
 }
