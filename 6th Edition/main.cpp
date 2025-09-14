@@ -20,6 +20,17 @@ class Cat final : public Animal {
         void speak() override { std::cout << "Meow!\n"; }
 };
 
+template <typename Derived>
+class MixinBase {
+    public:
+        void print() { static_cast<Derived*>(this)->printImpl(); }
+};
+
+class Mixin : public MixinBase<Mixin> {
+    public:
+        void printImpl() { std::cout << "Mixin\n"; }
+};
+
 // Template constraint to allow only array containers which also only have arithmetic members.
 template <typename T>
 concept isValidArray = requires {
@@ -44,6 +55,9 @@ int main() {
     animal->speak();
 
     reinterpret_cast<Cat*>(animal)->speak(); // reinterpret_cast is used for changing pointer types.
+
+    Mixin mixin;
+    mixin.print();
 
     return 0;
 }

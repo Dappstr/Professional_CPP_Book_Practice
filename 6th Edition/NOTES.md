@@ -12,7 +12,7 @@ In C++23, the [[assume]] attribute can be used to assume certain expressions are
 
 ## Chapter 2 
 
-`std::string` is not constexpr-able because it does not contain a constexpr constructor and is not a litral type. Use `std::String_view` instead.
+`std::string` is not constexpr-able because it does not contain a constexpr constructor and is not a litral type. Use `std::string_view` instead.
 
 Functions returning a string should reutnr a const reference to a `std::string` or a `std::string`, as returning an `std::string_view` if the string it refers to needs to reallocate.
 
@@ -42,7 +42,7 @@ When sitting down with a new library, try writing a quick prototype.
 
 While procedural programming is an okay paradigm, not all the time programs will be a linear sequence of events, and object-orientated programming gives you the ability to model data representation more adequately.
 
-OOP is based on the notion that you should divide your program inot into tasks, but into models of physical objects.
+OOP is based on the notion that you should divide your program into not tasks, but into models of physical objects.
 
 By building classes that have certain behaviors and defining how they interact, OOP offers a much richer mechanism for attaching code to the data on which it operates.
 
@@ -55,4 +55,27 @@ In composition, objects composed of other objects are destroyed when the contain
 "Is-a" relationships are a good way to model inheritance.
 
 When deciding between inheritance and composition, favor composition/"has-a" relationships, as "has-a" relationships are more flexible.
+
+## Chapter 6
+
+The key to abstraction is separating the interface from the implementation.
+
+When designing a component, strive for high cohesion, also known as the "single responsibility principle" (SRP).
+
+For example, a class which represents a car can have all the properties and behaviors of an engine, but instead of putting all that into the Car class, you should create a separate Engine class and include that into the Car class.
+
+A "mixin" is (typically) a template class that provides a set of functionality to a derived class. It's called a "mixin" because it "mixes in" behavior into the base class.
+
+Use up-to-date C++ idioms rather than C concepts. Such as `std::any` instead of `void*`.
+
+Templates (for now) only allow for homogeneous types/data structures.
+
+When designing code for reuse, consider the audience and follow the idea of familiarity. For example, use constructors/destructors for creating and destroying objects instead of creating arbitrary methods to do the same stuff in those methods.
+
+It can be appropriate at times to provide multiple ways to do the same thing. However, use good judgement with this, because over-application can easily lead to cluttered interfaces.
+
+The "Interface Segregation Principle" (ISP) states that no client should be forced to depend on methods it does not use.
+Split large/fat interfaces into smaller/thin interfaces.
+
+Follow the "SOLID" principles. S(Single Responsibility Principle), O(Open/Closed Principle), L(Liskov Substitution Principle), I(Interface Segregation Principle), D(Dependency Inversion Principle).
 

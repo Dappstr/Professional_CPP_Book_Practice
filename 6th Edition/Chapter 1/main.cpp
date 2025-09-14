@@ -19,7 +19,7 @@ int main() {
     else if (result == std::strong_ordering::less) { std::println("Less"); }
     else { std::println("Greater"); }
 
-    double b = std::nan("Not a number");
+    const double b = std::nan("Not a number");
     if (const std::partial_ordering result = b <=> 10; result == std::partial_ordering::unordered) { std::println("Unordered"); }
     else {
         if (result == std::partial_ordering::less) { std::println("Less"); }
