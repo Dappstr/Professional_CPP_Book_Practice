@@ -72,10 +72,46 @@ Templates (for now) only allow for homogeneous types/data structures.
 
 When designing code for reuse, consider the audience and follow the idea of familiarity. For example, use constructors/destructors for creating and destroying objects instead of creating arbitrary methods to do the same stuff in those methods.
 
-It can be appropriate at times to provide multiple ways to do the same thing. However, use good judgement with this, because over-application can easily lead to cluttered interfaces.
+It can be appropriate at times to provide multiple ways to do the same thing. However, use good judgement with this because over-application can easily lead to cluttered interfaces.
 
 The "Interface Segregation Principle" (ISP) states that no client should be forced to depend on methods it does not use.
 Split large/fat interfaces into smaller/thin interfaces.
 
 Follow the "SOLID" principles. S(Single Responsibility Principle), O(Open/Closed Principle), L(Liskov Substitution Principle), I(Interface Segregation Principle), D(Dependency Inversion Principle).
+
+## Chapter 7
+
+"Automatic" variables/objects are variables that are automatically destroyed when they go out of scope, commonly the function they are declared in.
+
+When working with manual memory management, creating a pointer to dynamic memory, the actual pointer remains on the stack and points to the allocated area of memory in the heap/free store.
+
+When working with multidimensional dynamic arrays, you must allocate the memory directly on each "layer." Similarly, when you wish to release memory, you must loop through each layer "delete"-ing each element.
+
+The "mark and sweep" garbage collector is a common way to implement garbage collection. With this approach, the garbage collector periodically examines every single pointer in the program and determines whether the referenced memory is still in use. If it is not, the memory is freed.
+
+"Object pools" are another way to implement garbage collection. When you are done with an object, you "return" it to the pool. The pool then recycles the memory for future use.
+
+`std::unique_ptr` allows you to pass a custom deleter function to the pointer.
+
+With `std::shared_ptr` you can "alias" a pointer to a shared resource, which means you can share ownership of an object while also pointing to a specific memory location of that object.
+
+```c++
+#include <iostream>
+#include <memory>
+
+struct MyStruct {
+    int a, b;
+};
+
+int main() {
+    auto p = std::make_shared<MyStruct>();
+    p->a = 42;
+    p->b = 99;
+
+    // Alias shared_ptr: shares ownership of `p`, but points to `p->b`
+    std::shared_ptr<int> alias(p, &p->b);
+
+    std::cout << "*alias = " << *alias << '\n';   // prints 99
+}
+```
 
