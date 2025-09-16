@@ -115,3 +115,18 @@ int main() {
 }
 ```
 
+## Chapter 8
+
+Starting with C++23, you can use the "explicit object parameter" feature instead of `this->
+
+```c++
+void SpreadsheetCell::setValue(this SpreadsheetCell& self, double value) {
+    self.m_value = value;
+    printCell(self);
+}
+```
+
+"Delegating constructors" are ctors which call another ctor.
+
+If you are deliberately allowing the ctor to convert types/values, mark it with `explicit(false)`
+
