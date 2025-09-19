@@ -5,6 +5,8 @@
 #include <format>
 #include <print>
 
+template <typename T> using id = T;
+
 int main() {
     if constexpr (constexpr std::string_view str = "Hello World!"; str.contains("Hello")) { // str.contains = C++23
         std::cout << "Hello found!";
