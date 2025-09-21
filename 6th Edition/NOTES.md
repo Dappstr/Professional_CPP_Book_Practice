@@ -199,3 +199,17 @@ void MyClass::doSomething() const {
     m_pimpl->m_data.push_back(42);
 }
 ```
+
+## Chapter 10
+
+Attempting to override a non-virtual method in a base class hides the base class method and will only use the context of the derived class.
+
+When compiling a class, a binary object is created that contains all the methods of a class. In the non-virtual case for methods, the control transfer to the appropriate member functions is hard-coded directly / a direct jump, based on the compile-time type. This is called static/early binding.
+
+For virtual tables, when a method is called, the vtable pointer is followed and the appropriate version of the member function is executed based on the actual type of the object at run time.
+
+Virtual methods work only on references or pointers.
+
+`final` can be applied to methods that should not be overridden.
+
+Calls to virtual methods from within a ctor or dtor are resolved statically at compile time.
