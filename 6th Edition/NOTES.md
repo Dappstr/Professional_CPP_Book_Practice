@@ -213,3 +213,21 @@ Virtual methods work only on references or pointers.
 `final` can be applied to methods that should not be overridden.
 
 Calls to virtual methods from within a ctor or dtor are resolved statically at compile time.
+
+Pure virtual methods can be implemented, but they must be implemented outside the definition of the class, and then it can be called from inside the derived class with the scope resolution operator.
+```c++
+class MyClass {
+    public:
+        virtual void doSomething() = 0;
+};
+
+void MyClass::doSomething() { std::println("MyClass::doSomething()"); }
+```
+
+When it comes to virtual methods with the same name inherited by a class, you should use upcasting to call the correct version, or use "disambiguation syntax."
+
+When overloading the copy assignment operator or copy ctor, you should almost always copy the parent class as well.
+
+RTTA stands for "Run Time Type Information." It is a mechanism that allows you to determine the type of an object at runtime.
+
+The `typeid` operator strips reference and const qualifiers from the type.
