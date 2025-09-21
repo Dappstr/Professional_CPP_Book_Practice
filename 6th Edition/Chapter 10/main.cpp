@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 #include <vector>
 #include <print>
 
@@ -118,9 +119,9 @@ private:
     
     public:
         explicit Dg(double weight, std::string name)
-            :Anml(weight), m_name(name) {}
+            :Anml(weight), m_name(std::move(name)) {}
     protected:
-        Dg(std::string name) : m_name(name) {};
+        Dg(std::string name) : m_name(std::move(name)) {};
 };
 
 class Brd : public virtual Anml {
@@ -128,7 +129,7 @@ class Brd : public virtual Anml {
         bool m_canfly {false};
     
     public:
-        explicit Brd(double weight, bool canfly)
+        explicit Brd(const double weight, bool canfly)
             :Anml(weight), m_canfly(canfly) {}
 
     protected:
@@ -137,8 +138,8 @@ class Brd : public virtual Anml {
 
 class DgBrd final : public Dg, public Brd {
     public:
-        explicit DgBrd(double weight, std::string name, bool canfly)
-            :Anml(weight), Dg(name), Brd(canfly) {}
+        explicit DgBrd(const double weight, std::string name, bool canfly)
+            :Anml(weight), Dg(std::move(name)), Brd(canfly) {}
 };
 
 
