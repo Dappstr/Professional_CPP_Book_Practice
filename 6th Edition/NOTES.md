@@ -281,3 +281,25 @@ Static variables can often be used to remember whether a particular initializati
 
 The initialization order of nonlocal variables in different source files is undefined.
 
+## Chapter 12
+
+Templates are implemented in a two-phase lookup process. The first phase is the "template instantiation" phase, where the compiler looks for a template type of a certain name. The second phase is where code is generated depending on the type of the name.
+
+When dealing with error debugging templates, use explicit instantiations and try to be explicit with which types you're working with.
+
+Virtual methods are not allowed to be templated.
+
+Some compilers do not enforce use of `this` to refer to data members and methods in a base class template. You can instead use `Base<T>::`
+
+Use inheritance for extending implementations and for polymorphism. Use specialization for customizing implementations for particular types.
+
+When deducing the return type of a template function without a template, you should use the trailing return type syntax for the expression you're expecting. This is because at the time of the prototype line, for example the type of `arg1 + arg2` ` is unknown.
+
+```c++
+template <typename T1, typename T2>
+auto add(const T1& t1, const T2& t2) -> decltype(t1+t2) {
+    return t1 + t2;
+}
+```
+
+Template constrains can be combined with `&&` or can be used in either or (`||`)

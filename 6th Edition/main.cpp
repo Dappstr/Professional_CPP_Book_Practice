@@ -44,6 +44,11 @@ void doStuffWithArray(const T& arr) {
     }
 }
 
+template <template <typename> typename Container, typename T>
+void doWork(Container<T>) {
+    //...
+}
+
 int main() {
     const std::vector vec = { 1, 2, 3, 4, 5 };
     constexpr std::array<std::string_view, 5> arr = {"One", "Two", "Three", "Four", "Five"};
