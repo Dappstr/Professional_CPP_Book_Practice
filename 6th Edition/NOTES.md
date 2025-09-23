@@ -231,3 +231,53 @@ When overloading the copy assignment operator or copy ctor, you should almost al
 RTTA stands for "Run Time Type Information." It is a mechanism that allows you to determine the type of an object at runtime.
 
 The `typeid` operator strips reference and const qualifiers from the type.
+
+## Chapter 11
+
+Header files have a number of problems, such as avoiding multiple includes of the same header file. Additionally, simply `#include`ing `<iostream>` adds tens of thousands of lines of code that the compiler has to go through.
+If several source files `#include <iostream>`, all of those translation units grow much bigger.
+
+Modules solve these problems and more. Modules are compiled once to a binary format, which the compiler can then use whenever a module is imported in another source file.
+
+Incremental compilation is also improved, as certain modificatiosn in modules do not trigger recompilation of users of that module and are not influenced by any externally defined macros.
+
+`import std` is a huge improvement, allowing you to include the entire standard library in a single line, making everything available.
+
+Modules require explicitly stating what you want to export.
+
+Modules can be split into an interface file and implementation file.
+
+An interface module starts with `export module <name>;` and an implementation module starts with `module <name>;`.` Module implementation files cannot export anything. Only interface modules can.
+
+There can only be one file with a certain partition name. Having an implementation file that starts with the same partition name is ill-formed.
+
+```c++
+export module datamodel:address; // datamodel:address partition
+
+export namespace DataModel {
+class Address {
+    public:
+        Address();
+        /* … */
+    };
+}
+```
+
+You can separate interface and implementation files by using `module :private;`
+
+All translation units are compiled independently into object files.
+
+The linker is the final phase of the compilation process. It links all the object files together into a single binary.
+
+There are four types of linkage:
+1. No linkage: The name is accessible only from the scope in which it is defined.
+2. External linkage: The name is accessible from anywhere.
+3. Internal linkage: The name is accessible only from within the translation unit.
+4. Module linkage: The name is accessible only in any translation unit from the same module.
+
+Entities in an anonymous namespace have internal linkage.
+
+Static variables can often be used to remember whether a particular initialization has already been done.
+
+The initialization order of nonlocal variables in different source files is undefined.
+
