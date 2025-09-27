@@ -317,3 +317,34 @@ This for example moves to the third-to-last byte of an input stream:
 
 `std::fstream` is an example of a bidirectional stream.
 
+## Chapter 14
+
+In professionally written software, a terminate_handler is usually set up to create a crash dump before terminating the process. A crash dump usually contains information such as the call stack and local variables at the time the uncaught exception was thrown.
+
+`noexcept` can be used as an operator utilizing an innter `noexcept` expression to determine whether a function is noexcept.
+
+You can use `std::throw_with_nested()` to throw an exception that contains another exception.
+
+You can use `dynamic_cast` to get access to a nested exception. If the value is `nullptr`, then there was no nested exception, the pointer is null, and the exception is null.
+
+You can rethrow the same expression by using `throw;`
+
+"Stack unwinding" is the process of destroying all local variables, and all code remaining in each function past the point of execution is skipped.
+
+***WARNING*** Careless exception handling can lead to memory leaks.
+
+Since C++20, a proper object-oriented replacement for `__func__` and these C-style preprocessor macros is available in the form of an of source:location has the following public accessors:
+
+`file_name()` Contains the current source code filename
+
+`function_name()` Contains the current function name, if the current position is inside a function
+
+`line()` Contains the current line number in the source code
+
+`column()` Contains the current column number in the source cod
+
+C++23 introduces the `<stacktrace>` library, which provides a `std::stacktrace` class that can be used to get a stack trace of the current thread.
+
+Any constructor that completes without an exception will cause the corresponding destructor to be run.
+
+***Do not throw exceptions from destructors.***
