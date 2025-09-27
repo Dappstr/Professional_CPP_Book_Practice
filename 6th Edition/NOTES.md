@@ -303,3 +303,17 @@ auto add(const T1& t1, const T2& t2) -> decltype(t1+t2) {
 ```
 
 Template constrains can be combined with `&&` or can be used in either or (`||`)
+
+## Chapter 13
+
+When working with streams:
+A call to unget() causes the stream to back up by one position, essentially putting the previous character read back on the stream.
+You can use the `fail()` member function to see whether `unget()` was successful or not. For example, `unget()` can fail if the current position is at the beginning of the stream.
+
+If you need to build up a string by concatenating several smaller strings, using a string stream will be more performant compared to concatenating string objects directly.
+
+This for example moves to the third-to-last byte of an input stream:
+`inStream.seekg(-3, ios_base::end);`
+
+`std::fstream` is an example of a bidirectional stream.
+
