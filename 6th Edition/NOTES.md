@@ -353,3 +353,15 @@ Any constructor that completes without an exception will cause the corresponding
 
 Operator overloads should always, if possible, be defined as member functions rather than global functions.
 
+## Chapter 16
+
+`std::vector` and `std::optional` are two examples of "vocabulary types."
+
+`mdspan` can be used for multidimensional contiguous arrays of memory.
+
+`set` can be used when you want to store a set of unique values.
+
+`set`, `map`, and `multimap` are all referred to as associative containers, since they associate keys and values.
+
+You should use the container-specific member function form of an algorithm, if provided, because it is generally more efficient or appropriate for the container at hand.
+
