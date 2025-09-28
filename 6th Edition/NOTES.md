@@ -348,3 +348,8 @@ C++23 introduces the `<stacktrace>` library, which provides a `std::stacktrace` 
 Any constructor that completes without an exception will cause the corresponding destructor to be run.
 
 ***Do not throw exceptions from destructors.***
+
+## Chapter 15
+
+Operator overloads should always, if possible, be defined as member functions rather than global functions.
+
