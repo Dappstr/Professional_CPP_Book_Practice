@@ -365,3 +365,18 @@ Operator overloads should always, if possible, be defined as member functions ra
 
 You should use the container-specific member function form of an algorithm, if provided, because it is generally more efficient or appropriate for the container at hand.
 
+## Chapter 17
+
+Iterators must be copy-constructible, copy-assignable, and destructible. L values of iterators must be swappable.
+
+It is recommended to use nonmember iterator functions, such as `std::begin()` and `std::end()`, instead of member functions.
+
+By combining ADL (calling begin(…) without any namespace qualification) with the using std::begin declaration, the compiler first looks up the right overload in the namespace of the type of its argument using ADL.
+If the compiler cannot find an overload using ADL, it tries to find an appropriate overload in the std namespace due to the using declaration. Just calling begin() without the using declaration would only call user-defined overloads through ADL, and just calling std::begin() would only look in the std namespace.
+
+`std::iterator_traits<Iter>::value_type` is a way of determine the underlying type behind the iterator (like an int, std::string, etc.)
+
+`std::advance(iter, n)` function to advance a given iterator, iter, by n positions.
+
+For random-access iterators, it simply does iter += n. For other iterators, it does ++iter or --iter in a loop n times, depending on whether n is positive or negative.
+
