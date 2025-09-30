@@ -397,3 +397,7 @@ Use `std::bitset` instead of `std::vector<bool>` for storing boolean values.
 
 `std::multimap` allows you to store identical key/value pairs.
 
+## Chapter 19
+
+For lambda expressions that do not capture anything, the compiler automatically provides a conversion operator that converts the lambda expression to a function pointer. Such lambda expressions can then, for example, be used to pass to functions that accept a function pointer as one of their arguments.
+
