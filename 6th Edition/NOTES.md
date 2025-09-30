@@ -380,3 +380,20 @@ If the compiler cannot find an overload using ADL, it tries to find an appropria
 
 For random-access iterators, it simply does iter += n. For other iterators, it does ++iter or --iter in a loop n times, depending on whether n is positive or negative.
 
+## Chapter 18
+
+Standard library containers use value semantics on elements. When you write classes that you intend to use with the Standard Library, you need to make sure they are copyable. When requesting an element from the container, a reference to the stored copy is returned.
+
+If you want to remove all elements satisfying a condition, one solution would be to write a loop iterating over all the elements and erasing every element that matches the condition.
+However, this solution has quadratic complexity, which is bad for performance. This quadratic complexity can be avoided by using the remove-erase-idiom, which has a linear complexity.
+
+`shrink_to_fit()` can be used to shrink the capacity of a container to fit its size.
+
+Use `std::bitset` instead of `std::vector<bool>` for storing boolean values.
+
+`std::deque` are not stored in a contiguous memory block.
+
+"Splicing" referrs to the process of inserting a container into another container. `std::list` does this in constant time.
+
+`std::multimap` allows you to store identical key/value pairs.
+
