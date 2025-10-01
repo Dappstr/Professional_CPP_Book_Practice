@@ -406,3 +406,6 @@ For lambda expressions that do not capture anything, the compiler automatically 
 If a container provides a member function with the same functionality as a generic algorithm, you should use the member function instead, because it's faster.
 For example, the generic find()algorithm runs in linear time, even on a map, while the find() member function on a map runs in logarithmic time.
 
+## Chapter 25
+
+TODO! Go over graphs data structures.
