@@ -401,3 +401,8 @@ Use `std::bitset` instead of `std::vector<bool>` for storing boolean values.
 
 For lambda expressions that do not capture anything, the compiler automatically provides a conversion operator that converts the lambda expression to a function pointer. Such lambda expressions can then, for example, be used to pass to functions that accept a function pointer as one of their arguments.
 
+## Chapter 20
+
+If a container provides a member function with the same functionality as a generic algorithm, you should use the member function instead, because it's faster.
+For example, the generic find()algorithm runs in linear time, even on a map, while the find() member function on a map runs in logarithmic time.
+
