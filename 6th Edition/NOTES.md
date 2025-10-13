@@ -228,7 +228,7 @@ When it comes to virtual methods with the same name inherited by a class, you sh
 
 When overloading the copy assignment operator or copy ctor, you should almost always copy the parent class as well.
 
-RTTA stands for "Run Time Type Information." It is a mechanism that allows you to determine the type of an object at runtime.
+RTTI stands for "Run Time Type Information." It is a mechanism that allows you to determine the type of an object at runtime.
 
 The `typeid` operator strips reference and const qualifiers from the type.
 
@@ -404,7 +404,7 @@ For lambda expressions that do not capture anything, the compiler automatically 
 ## Chapter 20
 
 If a container provides a member function with the same functionality as a generic algorithm, you should use the member function instead, because it's faster.
-For example, the generic find()algorithm runs in linear time, even on a map, while the find() member function on a map runs in logarithmic time.
+For example, the generic find() algorithm runs in linear time, even on a map, while the find() member function on a map runs in logarithmic time.
 
 ## Chapter 25
 
